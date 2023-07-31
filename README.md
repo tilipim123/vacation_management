@@ -1,24 +1,35 @@
-# README
+Gostaríamos que você criasse, utilizando Ruby on Rails e React, uma pequena aplicação que permita gerenciar as férias dos colaboradores de uma empresa de software.
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
 
-Things you may want to cover:
 
-* Ruby version
+DICA:
 
-* System dependencies
+" Conforme a Reforma Trabalhista, a partir de 11.11.2017 as férias poderão ser usufruídas em até 3 (três) períodos, sendo que um deles não poderá ser inferior a 14 dias corridos, e os demais não poderão ser inferiores a 5 dias corridos cada um"
 
-* Configuration
 
-* Database creation
 
-* Database initialization
+Desta forma, é necessário poder cadastrar os colaboradores:
 
-* How to run the test suite
+Nome
 
-* Services (job queues, cache servers, search engines, etc.)
+Cargo
 
-* Deployment instructions
+Data de Contratação
 
-* ...
+Bem como os períodos de férias (pode-se cadastrar um ou mais períodos para cada colaborador):
+
+Data de Início
+
+Data de Término
+
+Considere as seguintes regras para o cadastro de férias:
+
+Cada colaborador ganha 30 dias de férias a cada período de 12 meses.
+
+O primeiro período de férias só pode ser agendado para iniciar-se pelo menos 12 meses após a data de contratação.
+
+Não deve permitir cadastro de períodos de férias que se sobreponham, para um mesmo colaborador.
+
+A duração de cada período de férias não pode ser menor do que 10 dias.
+
+**O front-end pode ser estuturado usando ERB, para contemplar as funcionalidades. **
