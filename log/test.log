@@ -1,0 +1,98 @@
+  [1m[35m (109.1ms)[0m  [1m[35mDROP DATABASE IF EXISTS "vacation_management_app_test"[0m
+  [1m[35m (293.8ms)[0m  [1m[35mCREATE DATABASE "vacation_management_app_test" ENCODING = 'unicode'[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[35mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "collaborators" CASCADE[0m
+  [1m[35m (8.4ms)[0m  [1m[35mCREATE TABLE "collaborators" ("id" bigserial primary key, "name" character varying, "position" character varying, "hire_date" date, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE IF EXISTS "vacations" CASCADE[0m
+  [1m[35m (4.7ms)[0m  [1m[35mCREATE TABLE "vacations" ("id" bigserial primary key, "collaborator_id" bigint NOT NULL, "start_date" date, "end_date" date, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (3.8ms)[0m  [1m[35mCREATE INDEX "index_vacations_on_collaborator_id" ON "vacations" ("collaborator_id")[0m
+  [1m[35m (3.2ms)[0m  [1m[35mALTER TABLE "vacations" ADD CONSTRAINT "fk_rails_79cf6b3649"
+FOREIGN KEY ("collaborator_id")
+  REFERENCES "collaborators" ("id")
+[0m
+  [1m[35m (5.7ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (1.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20230731192653)[0m
+  [1m[35m (1.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(20230731192621);
+
+[0m
+  [1m[35m (5.9ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.4ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "test"], ["created_at", "2023-07-31 22:23:57.100445"], ["updated_at", "2023-07-31 22:23:57.100445"]]
+  [1m[36mTRANSACTION (0.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "schema_sha1"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.2ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "schema_sha1"], ["value", "f2921fe5a84e2530bcbeb80c8c1058c8ba5b54a1"], ["created_at", "2023-07-31 22:23:57.106075"], ["updated_at", "2023-07-31 22:23:57.106075"]]
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mCollaborator Create (0.3ms)[0m  [1m[32mINSERT INTO "collaborators" ("name", "position", "hire_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Amb. Marquetta Pollich"], ["position", "Government Supervisor"], ["hire_date", "2020-10-08"], ["created_at", "2023-07-31 22:23:57.875899"], ["updated_at", "2023-07-31 22:23:57.875899"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mCollaborator Update (0.2ms)[0m  [1m[33mUPDATE "collaborators" SET "hire_date" = $1, "updated_at" = $2 WHERE "collaborators"."id" = $3[0m  [["hire_date", "2022-07-31"], ["updated_at", "2023-07-31 22:23:57.877407"], ["id", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mVacation Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "vacations" WHERE "vacations"."collaborator_id" = $1 AND (start_date <= '2024-05-03' AND end_date >= '2023-06-30') LIMIT $2[0m  [["collaborator_id", 1], ["LIMIT", 1]]
+  [1m[36mVacation Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "vacations" WHERE "vacations"."collaborator_id" = $1 AND (start_date <= '2024-05-03' AND end_date >= '2023-07-31') LIMIT $2[0m  [["collaborator_id", 1], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mCollaborator Create (0.1ms)[0m  [1m[32mINSERT INTO "collaborators" ("name", "position", "hire_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Fr. Edythe Purdy"], ["position", "Legacy Manufacturing Consultant"], ["hire_date", "2019-04-06"], ["created_at", "2023-07-31 22:23:57.880918"], ["updated_at", "2023-07-31 22:23:57.880918"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mVacation Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "vacations" WHERE "vacations"."collaborator_id" = $1 AND (start_date <= '2023-08-10' AND end_date >= '2023-07-31') LIMIT $2[0m  [["collaborator_id", 2], ["LIMIT", 1]]
+  [1m[36mVacation Create (0.3ms)[0m  [1m[32mINSERT INTO "vacations" ("collaborator_id", "start_date", "end_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["collaborator_id", 2], ["start_date", "2023-07-31"], ["end_date", "2023-08-10"], ["created_at", "2023-07-31 22:23:57.882424"], ["updated_at", "2023-07-31 22:23:57.882424"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mVacation Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "vacations" WHERE "vacations"."collaborator_id" = $1 AND (start_date <= '2023-08-15' AND end_date >= '2023-08-05') LIMIT $2[0m  [["collaborator_id", 2], ["LIMIT", 1]]
+  [1m[36mVacation Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "vacations" WHERE "vacations"."collaborator_id" = $1 AND (start_date <= '2023-08-15' AND end_date >= '2023-08-11') LIMIT $2[0m  [["collaborator_id", 2], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "schema_sha1"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mCollaborator Create (0.2ms)[0m  [1m[32mINSERT INTO "collaborators" ("name", "position", "hire_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Columbus Schowalter"], ["position", "District Real-Estate Agent"], ["hire_date", "2020-07-13"], ["created_at", "2023-07-31 22:25:35.516600"], ["updated_at", "2023-07-31 22:25:35.516600"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mCollaborator Update (0.2ms)[0m  [1m[33mUPDATE "collaborators" SET "hire_date" = $1, "updated_at" = $2 WHERE "collaborators"."id" = $3[0m  [["hire_date", "2022-07-31"], ["updated_at", "2023-07-31 22:25:35.517918"], ["id", 3]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mVacation Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "vacations" WHERE "vacations"."collaborator_id" = $1 AND (start_date <= '2023-10-13' AND end_date >= '2023-06-30') LIMIT $2[0m  [["collaborator_id", 3], ["LIMIT", 1]]
+  [1m[36mVacation Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "vacations" WHERE "vacations"."collaborator_id" = $1 AND (start_date <= '2023-10-13' AND end_date >= '2023-07-31') LIMIT $2[0m  [["collaborator_id", 3], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mCollaborator Create (0.1ms)[0m  [1m[32mINSERT INTO "collaborators" ("name", "position", "hire_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Anamaria Monahan"], ["position", "Education Officer"], ["hire_date", "2022-07-18"], ["created_at", "2023-07-31 22:25:35.521826"], ["updated_at", "2023-07-31 22:25:35.521826"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mVacation Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "vacations" WHERE "vacations"."collaborator_id" = $1 AND (start_date <= '2023-08-10' AND end_date >= '2023-07-31') LIMIT $2[0m  [["collaborator_id", 4], ["LIMIT", 1]]
+  [1m[36mVacation Create (0.2ms)[0m  [1m[32mINSERT INTO "vacations" ("collaborator_id", "start_date", "end_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["collaborator_id", 4], ["start_date", "2023-07-31"], ["end_date", "2023-08-10"], ["created_at", "2023-07-31 22:25:35.524033"], ["updated_at", "2023-07-31 22:25:35.524033"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mVacation Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "vacations" WHERE "vacations"."collaborator_id" = $1 AND (start_date <= '2023-08-15' AND end_date >= '2023-08-05') LIMIT $2[0m  [["collaborator_id", 4], ["LIMIT", 1]]
+  [1m[36mVacation Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "vacations" WHERE "vacations"."collaborator_id" = $1 AND (start_date <= '2023-08-15' AND end_date >= '2023-08-11') LIMIT $2[0m  [["collaborator_id", 4], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
