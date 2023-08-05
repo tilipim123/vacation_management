@@ -27,7 +27,7 @@ To set up the Vacation Planner App on your local machine, follow these steps:
 
 ```bash
 git clone <repository-url>
-cd vacation-planner-app
+cd vacation-management
 ```
 
 2. Install the required dependencies:
